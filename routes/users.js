@@ -64,6 +64,24 @@ router.post('/add',function (req, res, next) {
 });
 // find
 router.get('/list',function (req, res, next) {
-    
+    var dataArray = [];
+    User.findAll({ where: { isDelete: false }}).then(function (value) {
+      console.log(value)
+      if (value.length != 0){
+        for (var i = 0; i < value.length; i ++){
+           var obj = {
+              username: value[i].user_name,
+              email: value[i].email,
+              desc: value[i].desc
+           }
+           dataArray.push(obj);
+        }
+        res.send(JSON.stringify({ status: true, data: dataArray, msg: 'success'}));
+      }else{
+        res.send(JSON.stringify({ status: true, data: [], msg: 'success'}));
+      }
+    }).catch(function (reason) {
+      res.send(JSON.stringify({ status: false, msg: reason.message }));
+    });
 });
 module.exports = router;
