@@ -109,7 +109,7 @@ router.post('/update',function (req, res, next) {
         res.send(JSON.stringify({ status: false, msg : reason.message}));
     });
 });
-// delete
+// delete some
 router.post('/delete', function (req, res, next) {
     User.destroy({ where : { email : req.body.email }}).then(function (value) {
        if( value == 1){
