@@ -10,19 +10,18 @@ const Document = db.define('document',{
 const Version = db.define('version', {
     timestamp : Sequelize.DATE
 })
-
-Document.hasMany(Version);
+Document.hasMany(Version,{ as : 'workID'});
 
 Document.sync({ force: false}).then(function (result) {
-    console.log('init user mode success');
+    console.log('init document mode success');
 }).catch(function (reason) {
-    console.log('init user model failure'+ reason);
+    console.log('init document model failure'+ reason);
 })
 
 Version.sync({ force: false}).then(function (result) {
-    console.log('init user mode success');
+    console.log('init version mode success');
 }).catch(function (reason) {
-    console.log('init user model failure'+ reason);
+    console.log('init version model failure'+ reason);
 })
 router.get('/test',function (req, res, next) {
     res.send('hello company');
