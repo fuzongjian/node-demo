@@ -53,6 +53,7 @@ router.post('/add',function (req, res, next) {
 });
 // findAll 查询所有符合条件的结果
 router.get('/list',function (req, res, next) {
+    console.log(req.headers.key);
     var dataArray = [];
     User.findAll().then(function (value) {
       if (value.length != 0){
