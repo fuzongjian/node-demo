@@ -13,7 +13,7 @@ var User = db.define('user',{
     email:{
         type: Sequelize.STRING,
         allowNull: false,
-        validate : { isEmail: true},//  验证属性是否符合条件
+        validate : { isEmail: { args: true, msg: "请输入正确的邮箱地址" } },//  验证属性是否符合条件，自定义错误消息
         comment: '邮箱'
     },
     create_at: {
@@ -36,7 +36,7 @@ var User = db.define('user',{
     freezeTableName: false,
     timestamps : false,// 不添加时间戳属性（updatedAt,createdAt）
     // 定义表的名称
-    tableName: 'fuzongjian',
+    tableName: 'user',
 
 });
 // 创建表

@@ -4,7 +4,7 @@ var User = require('../models/user');
 /*  数据库操作 */
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource good');
+  res.send('hello user');
 });
 // add
 router.post('/add',function (req, res, next) {
@@ -34,12 +34,19 @@ router.post('/add',function (req, res, next) {
    //          res.send(JSON.stringify({ msg : err.message }));
    //      }
    //  })();
+    // 在这里要做判断，数据库是否已经存在的问题
     (async() => {
         try{
             var user = await User.addUser(body);
             res.send(JSON.stringify(user));
         }catch(err){
-            res.send(JSON.stringify({ status: false, msg : err.message}));
+            // 验证器的错误信息提取
+            if(err.errors.length != 0){
+                res.send(JSON.stringify({ status: false, msg : err.errors[0].message }));
+            }else{
+                res.send(JSON.stringify({ status: false, msg : err.message }));
+            }
+
         }
     })();
 
@@ -67,7 +74,14 @@ router.get('/list',function (req, res, next) {
 });
 // find  只会返回一个结果
 router.post('/some',function (req, res, next) {
+
    var body = req.body;
+
+   // 参数为空的时候需要报出错误
+   if (body.username.length == 0){
+       res.send(JSON.stringify({ status : false, msg : "参数不能为空" }));
+       return
+   }
    User.find({ user_name : body.username}).then(function (value) {
        var data = {
            username : value.user_name,

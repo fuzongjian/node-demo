@@ -4,12 +4,14 @@ var router = express.Router();
 /*  数据库操作 */
 var Sequelize = require('sequelize');
 var db = require('../configs/db');
+
 const Document = db.define('document',{
     author : Sequelize.STRING
 })
 const Version = db.define('version', {
     timestamp : Sequelize.DATE
 })
+
 Document.hasMany(Version,{ as : 'workID'});
 
 Document.sync({ force: false}).then(function (result) {
