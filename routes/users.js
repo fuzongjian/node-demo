@@ -90,6 +90,7 @@ router.post('/some',function (req, res, next) {
        }
        res.send(JSON.stringify({ status : true, data: data }));
    }).catch(function (reason) {
+       console.log(reason+'fuzongjian')
        res.send(JSON.stringify({ status: false, msg: reason.message }));
    });
 });
