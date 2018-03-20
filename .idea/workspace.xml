@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="299f8b4e-e5a1-47cd-8801-2a86d2edfed7" name="Default" comment="sequelize模块学习研究，下一步多表查询。">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/routes/users.js" afterPath="$PROJECT_DIR$/routes/users.js" />
-    </list>
+    <list default="true" id="299f8b4e-e5a1-47cd-8801-2a86d2edfed7" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -260,7 +257,7 @@
       <workItem from="1520763049866" duration="71000" />
       <workItem from="1520815262215" duration="18583000" />
       <workItem from="1521511254337" duration="9008000" />
-      <workItem from="1521555621279" duration="757000" />
+      <workItem from="1521555621279" duration="833000" />
     </task>
     <task id="LOCAL-00001" summary="sequelize框架下查询">
       <created>1520595262888</created>
@@ -276,11 +273,18 @@
       <option name="project" value="LOCAL" />
       <updated>1520697204037</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="sequelize模块学习研究，下一步多表查询。">
+      <created>1521556388589</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1521556388589</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41931000" />
+    <option name="totallyTimeSpent" value="42007000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
