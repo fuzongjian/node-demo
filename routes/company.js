@@ -105,8 +105,12 @@ router.post('/find',function (req, res, next) {
 // 更新
 router.post('/update',function (req, res, next) {
     Player.findOne({include: [Address], where: {username: req.body.username}}).then(function (value) {
-        Address.update({street: '天天向上'},{ where: {playerId: value.id}}).then(function (value2) {
-            res.send(JSON.stringify(value2));
+        Address.update({street: '你是谁'},{ where: {playerId: value.id}}).then(function (value2) {
+            if(value2[0] == 1) {
+                res.send('success');
+            }else {
+                res.send('failure');
+            }
         });
         // value.setAddress(address);
     }).catch(function (reason) {
